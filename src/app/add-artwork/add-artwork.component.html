@@ -1,0 +1,93 @@
+<!-- <form [formGroup]="artworkForm" (ngSubmit)="saveArtwork()">
+    <div class="flex items-center mb-5 w-1/4 p-2">
+        <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white pr-4">Name</label>
+        <input type="text" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Painting Name" required />
+      </div>
+</form> -->
+
+<form [formGroup]="artworkForm" (ngSubmit)="saveArtwork()" class="max-w-xl mx-auto bg-white p-6 rounded-lg shadow-md">
+    <!-- Form Title -->
+    <h2 class="text-2xl font-semibold mb-4 text-gray-800">Add Artwork</h2>
+  
+    <!-- Name Field -->
+    <div class="mb-4">
+      <label for="Name" class="block text-sm font-medium text-gray-700">Name</label>
+      <input
+        id="Name"
+        type="text"
+        formControlName="Name"
+        class="mt-1 block w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
+        placeholder="Enter artwork name"
+      />
+    </div>
+  
+    <!-- Price Field -->
+    <div class="mb-4">
+      <label for="Price" class="block text-sm font-medium text-gray-700">Price</label>
+      <input
+        id="Price"
+        type="number"
+        formControlName="Price"
+        class="mt-1 block w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
+        placeholder="Enter price"
+      />
+    </div>
+  
+    <!-- Type Field -->
+    <div class="mb-4">
+      <label for="Type" class="block text-sm font-medium text-gray-700">Type</label>
+      <input
+        id="Type"
+        type="text"
+        formControlName="Type"
+        class="mt-1 block w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
+        placeholder="Acrylic or Oil"
+      />
+    </div>
+  
+    <!-- Description Field -->
+    <div class="mb-4">
+      <label for="Description" class="block text-sm font-medium text-gray-700">Description</label>
+      <textarea
+        id="Description"
+        formControlName="Description"
+        class="mt-1 block w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
+        rows="4"
+        placeholder="Enter a brief description"
+      ></textarea>
+    </div>
+  
+    <!-- Size Field -->
+    <div class="mb-4">
+      <label for="Size" class="block text-sm font-medium text-gray-700">Size</label>
+      <input
+        id="Size"
+        type="text"
+        formControlName="Size"
+        class="mt-1 block w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
+        placeholder="Enter artwork size (e.g., 16x20 inches)"
+      />
+    </div>
+  
+    <!-- Image Path Field -->
+    <div class="mb-4">
+      <label for="ImagePath" class="block text-sm font-medium text-gray-700">Image Path</label>
+      <input
+        id="ImagePath"
+        type="text"
+        formControlName="ImagePath"
+        class="mt-1 block w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
+        placeholder="Enter image URL or path"
+      />
+    </div>
+  
+    <!-- Submit Button -->
+    <div class="mt-6">
+      <button
+        type="submit"
+        class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
+      >
+        Submit
+      </button>
+    </div>
+  </form>

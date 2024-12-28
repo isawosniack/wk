@@ -1,44 +1,11 @@
 <div class="md:container md:mx-auto">
     <div class="gap-8 columns-3 mt-5">
-        <div>
-            <img class="w-full" src="{{artworks[0].ImagePath}}" alt="">
-            <p>{{artworks[0].Description}}</p>
-        </div>
-        <div>
-            <img class="w-full" src="{{artworks[1].ImagePath}}" alt="">
-            <p>{{artworks[1].Description}}</p>
-        </div>
-        <div>
-            <img class="w-full" src="{{artworks[2].ImagePath}}" alt="">
-            <p>{{artworks[2].Description}}</p>
-        </div>
-    </div>
-    <div class="gap-8 columns-3">
-        <div>
-            <img class="w-full" src="{{artworks[3].ImagePath}}" alt="">
-            <p>{{artworks[3].Description}}</p>
-        </div>
-        <div>
-            <img class="w-full" src="{{artworks[4].ImagePath}}" alt="">
-            <p>{{artworks[4].Description}}</p>
-        </div>
-        <div>
-            <img class="w-full" src="{{artworks[5].ImagePath}}" alt="">
-            <p>{{artworks[5].Description}}</p>
-        </div>
-    </div>
-    <div class="gap-8 columns-3">
-        <div>
-            <img class="w-full" src="{{artworks[6].ImagePath}}" alt="">
-            <p>{{artworks[6].Description}}</p>
-        </div>
-        <div>
-            <img class="w-full" src="{{artworks[7].ImagePath}}" alt="">
-            <p>{{artworks[7].Description}}</p>
-        </div>
-        <div>
-            <img class="w-full" src="{{artworks[8].ImagePath}}" alt="">
-            <p>{{artworks[8].Description}}</p>
+        <div *ngFor="let artwork of artworks">
+        <div class="text-center">
+            <img class="w-full" src="{{artwork.ImagePath}}" alt="">
+            <h1>{{artwork.Name}}</h1>
+            <p>{{artwork.Size}}</p>
+            <p>{{artwork.Price}}</p>
         </div>
     </div>
 </div>

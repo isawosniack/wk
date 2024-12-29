@@ -1,11 +1,13 @@
 <div class="md:container md:mx-auto">
-    <div class="gap-8 columns-3 mt-5">
+    <div class="gap-8 grid grid-cols-3 mt-5">
         <div *ngFor="let artwork of artworks">
-        <div class="text-center">
-            <img class="w-full" src="{{artwork.ImagePath}}" alt="">
-            <h1>{{artwork.Name}}</h1>
-            <p>{{artwork.Size}}</p>
-            <p>{{artwork.Price}}</p>
+            <div class="text-center text-gray-900 hover:bg-gray-200">
+                <div class="aspect-square">
+                <img class="w-full h-full object-cover" src="{{artwork.ImagePath}}" alt="">
+            </div>
+                <h1 class="font-bold">{{artwork.Name}}</h1>
+                <p>Size: {{artwork.Size}}</p>
+            
         </div>
     </div>
 </div>

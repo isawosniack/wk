@@ -4,6 +4,7 @@ import { ReactiveFormsModule, FormGroup, FormBuilder, Validators, NgSelectOption
 import { ArtworkType } from '@app/models/artwork-type.model';
 import { CategoryType } from '@app/models/category-type.model';
 import { CommonModule } from '@angular/common';
+import { MessageService } from '@app/services/message.service';
 
 @Component({
   selector: 'app-add-artwork',
@@ -17,9 +18,14 @@ export class AddArtworkComponent implements OnInit {
   categoryType: CategoryType[] = [];
 
   constructor(private _artworkService: ArtworkService,
-    private _fb: FormBuilder
+    private _fb: FormBuilder,
+    private _messageService:  MessageService
   ) {
-    this.artworkForm = this._fb.group({
+    this.artworkForm = this.createForm();
+  }
+
+  createForm(): FormGroup<any> {
+    return this._fb.group({
       Name: [""],
       Price: [""],
       Type: [""],
@@ -36,7 +42,17 @@ export class AddArtworkComponent implements OnInit {
   }
 
   saveArtwork() {
-
+    console.log(this.artworkForm.value);
+    
+    this._artworkService.addArtwork(this.artworkForm.value).subscribe(response => {
+      console.log(response)
+      this._messageService.showSuccess("Success!")
+      this.artworkForm = this.createForm();
+    }, error => {
+      this._messageService.showError("Error adding artwork")
+      console.log(error)
+    }
+    )
   }
 
   loadArtworkType() {

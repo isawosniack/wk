@@ -1,0 +1,19 @@
+<!-- message.component.html -->
+<div *ngIf="message" 
+     class="fixed top-4 right-4 p-4 rounded-lg shadow-lg w-80 max-w-xs"
+     [ngClass]="{
+       'bg-green-500': message.type === 'success',
+       'bg-red-500': message.type === 'error',
+       'bg-blue-500': message.type === 'info'
+     }">
+  <div class="flex items-center">
+    <div class="text-white font-semibold flex-1">
+      {{ message.content }}
+    </div>
+    <button (click)="message = null" class="ml-2 text-white focus:outline-none">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+  </div>
+</div>

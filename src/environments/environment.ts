@@ -4,5 +4,7 @@ export const ENV = {
 
 export const environment = {
     production: false,
-    ENDPOINT_ARTWORK: `${ENV.apiUrl}/artworks`
+    ENDPOINT_ARTWORK: `${ENV.apiUrl}/artworks`,
+    ENDPOINT_TYPE: `${ENV.apiUrl}/artworks/type`,
+    ENDPOINT_CATEGORY: `${ENV.apiUrl}/artworks/category`
 };

@@ -6,88 +6,72 @@
 </form> -->
 
 <form [formGroup]="artworkForm" (ngSubmit)="saveArtwork()" class="max-w-xl mx-auto bg-white p-6 rounded-lg shadow-md">
-    <!-- Form Title -->
-    <h2 class="text-2xl font-semibold mb-4 text-gray-800">Add Artwork</h2>
-  
-    <!-- Name Field -->
-    <div class="mb-4">
-      <label for="Name" class="block text-sm font-medium text-gray-700">Name</label>
-      <input
-        id="Name"
-        type="text"
-        formControlName="Name"
-        class="mt-1 block w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
-        placeholder="Enter artwork name"
-      />
-    </div>
-  
-    <!-- Price Field -->
-    <div class="mb-4">
-      <label for="Price" class="block text-sm font-medium text-gray-700">Price</label>
-      <input
-        id="Price"
-        type="number"
-        formControlName="Price"
-        class="mt-1 block w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
-        placeholder="Enter price"
-      />
-    </div>
-  
-    <!-- Type Field -->
-    <div class="mb-4">
-      <label for="Type" class="block text-sm font-medium text-gray-700">Type</label>
-      <input
-        id="Type"
-        type="text"
-        formControlName="Type"
-        class="mt-1 block w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
-        placeholder="Acrylic or Oil"
-      />
-    </div>
-  
-    <!-- Description Field -->
-    <div class="mb-4">
-      <label for="Description" class="block text-sm font-medium text-gray-700">Description</label>
-      <textarea
-        id="Description"
-        formControlName="Description"
-        class="mt-1 block w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
-        rows="4"
-        placeholder="Enter a brief description"
-      ></textarea>
-    </div>
-  
-    <!-- Size Field -->
-    <div class="mb-4">
-      <label for="Size" class="block text-sm font-medium text-gray-700">Size</label>
-      <input
-        id="Size"
-        type="text"
-        formControlName="Size"
-        class="mt-1 block w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
-        placeholder="Enter artwork size (e.g., 16x20 inches)"
-      />
-    </div>
-  
-    <!-- Image Path Field -->
-    <div class="mb-4">
-      <label for="ImagePath" class="block text-sm font-medium text-gray-700">Image Path</label>
-      <input
-        id="ImagePath"
-        type="text"
-        formControlName="ImagePath"
-        class="mt-1 block w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
-        placeholder="Enter image URL or path"
-      />
-    </div>
-  
-    <!-- Submit Button -->
-    <div class="mt-6">
-      <button
-        type="submit"
-        class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
-      >
-        Submit
-      </button>
-    </div>
-  </form>
+  <!-- Form Title -->
+  <h2 class="text-2xl font-semibold mb-4 text-gray-800">Add Artwork</h2>
+
+  <!-- Name Field -->
+  <div class="mb-4">
+    <label for="Name" class="block text-sm font-medium text-gray-700">Name</label>
+    <input id="Name" type="text" formControlName="Name"
+      class="mt-1 block w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
+      placeholder="Enter artwork name" />
+  </div>
+
+  <!-- Price Field -->
+  <div class="mb-4">
+    <label for="Price" class="block text-sm font-medium text-gray-700">Price</label>
+    <input id="Price" type="number" formControlName="Price"
+      class="mt-1 block w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
+      placeholder="Enter price" />
+  </div>
+
+  <!-- Type Field -->
+  <div class="mb-4">
+    <label for="artworkType" class="block text-sm font-medium text-gray-700 mb-2">Artwork Type</label>
+    <select id="artworkType" formControlName="Type" name="artworkType"
+      class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+      <option *ngFor="let artType of artworkType" [value]="artType.TypeId">{{ artType.Description }}</option>
+    </select>
+  </div>
+
+  <!-- Category Field -->
+  <div class="mb-4">
+    <label for="categoryType" class="block text-sm font-medium text-gray-700 mb-2">Category</label>
+    <select id="categoryType" formControlName="Category" name="categoryType"
+      class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+      <option *ngFor="let category of categoryType" [value]="category.CategoryId">{{ category.Description }}</option>
+    </select>
+  </div>
+
+  <!-- Description Field -->
+  <div class="mb-4">
+    <label for="Description" class="block text-sm font-medium text-gray-700">Description</label>
+    <textarea id="Description" formControlName="Description"
+      class="mt-1 block w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
+      rows="4" placeholder="Enter a brief description"></textarea>
+  </div>
+
+  <!-- Size Field -->
+  <div class="mb-4">
+    <label for="Size" class="block text-sm font-medium text-gray-700">Size</label>
+    <input id="Size" type="text" formControlName="Size"
+      class="mt-1 block w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
+      placeholder="Enter artwork size (e.g., 16x20 inches)" />
+  </div>
+
+  <!-- Image Path Field -->
+  <div class="mb-4">
+    <label for="ImagePath" class="block text-sm font-medium text-gray-700">Image Path</label>
+    <input id="ImagePath" type="text" formControlName="ImagePath"
+      class="mt-1 block w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
+      placeholder="Enter image URL or path" />
+  </div>
+
+  <!-- Submit Button -->
+  <div class="mt-6">
+    <button type="submit"
+      class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">
+      Submit
+    </button>
+  </div>
+</form>

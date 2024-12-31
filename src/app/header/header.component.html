@@ -4,11 +4,11 @@
     <a href="#home" class="hover:text-gray-300">
       <img class="rounded-t-lg invert w-10" src="assets/images/header/logo.png" alt="" />
     </a>
-    <a href="#gallery" class="hover:text-gray-300">Gallery</a>
-    <a href="#about" class="hover:text-gray-300">About</a>
+    <a href="gallery" class="hover:text-gray-300">Gallery</a>
+    <a role="button" (click)="scrollToFooter()" class="hover:text-gray-300">About</a>
     <a href="#contact" class="hover:text-gray-300">Contact</a>
   </nav>
-
+  
   <!-- header row containing two columns: text left and image right -->
   <div class="flex justify-center space-x-[10%] lg:columns-2 sm:columns-1 items-center h-[50vh]">
     <!-- first column -->
@@ -24,4 +24,3 @@
       <img src="assets/images/header/goose-10_10.jpg" class="lg:h-[90%] sm:h-[65%] rounded-full sm:block hidden">
   </div>
 </header>
-

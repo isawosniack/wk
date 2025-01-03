@@ -1,0 +1,18 @@
+<h2 mat-dialog-title>{{data.name}}</h2>
+  <mat-dialog-content>
+      <!-- Close Button -->
+      <button (click)="onNoClick()"
+        class="absolute top-4 right-4 text-white font-bold bg-gray-500 rounded-full w-8 h-8 flex items-center justify-center">
+        &times;
+      </button>
+      <!-- Image -->
+      <img [src]="imagePath()" alt="Image" class="w-full h-auto rounded-md" />
+      <!-- More Information Button -->
+      <mat-dialog-actions>
+        <button (click)="moreInformation()"
+          class="absolute bottom-4 left-4 px-4 py-2 text-white bg-blue-600 hover:bg-blue-700 rounded-full">
+          More Information
+        </button>
+      </mat-dialog-actions>
+
+  </mat-dialog-content>

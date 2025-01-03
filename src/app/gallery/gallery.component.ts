@@ -1,21 +1,26 @@
 import { HttpClientModule } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit, ViewChild } from '@angular/core';
 import { Artwork } from 'app/models/artwork.model';
 import { ArtworkService } from 'app/services/artwork.service';
 import { CommonModule } from '@angular/common'; // Import CommonModule
+import { ImageModalComponent } from '@app/image-modal/image-modal.component';
+import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 
 
 @Component({
   selector: 'app-gallery',
-  imports: [HttpClientModule, CommonModule],
+  imports: [HttpClientModule, CommonModule, ImageModalComponent, MatDialogModule],
   templateUrl: './gallery.component.html',
   styleUrl: './gallery.component.scss'
 })
 export class GalleryComponent implements OnInit{
-
+  @ViewChild('imageModal') imageModal: ImageModalComponent | undefined;
   artworks: Artwork[] = [];
+  selectedImage: string | null = null;
 
-  constructor(private _artworkService: ArtworkService) {
+  constructor(private _artworkService: ArtworkService,
+    private _matDialog: MatDialog
+  ) {
 
   }
 
@@ -26,8 +31,15 @@ export class GalleryComponent implements OnInit{
   loadArtworks() {
     this._artworkService.getArtworks().subscribe(data => {
       this.artworks = data;
-      console.log(data);
+      // console.log(data);
     });
   }
 
+  readonly dialog = inject(MatDialog);
+
+  openDialog(imagePath: string, imageName: string): void {
+    const dialogRef = this.dialog.open(ImageModalComponent, {
+      data: {imagePath: imagePath, name: imageName},
+    });
+  }
 }

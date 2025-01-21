@@ -5,6 +5,8 @@ import { ArtworkService } from 'app/services/artwork.service';
 import { CommonModule } from '@angular/common'; // Import CommonModule
 import { ImageModalComponent } from '@app/image-modal/image-modal.component';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+import { CategoryType } from '@app/models/category-type.model';
+import { ArtworkType } from '@app/models/artwork-type.model';
 
 
 @Component({
@@ -37,9 +39,11 @@ export class GalleryComponent implements OnInit{
 
   readonly dialog = inject(MatDialog);
 
-  openDialog(imagePath: string, imageName: string): void {
+  openDialog(imagePath: string, imageName: string, imagePrice: number, imageType: ArtworkType, imageCategory: CategoryType, imageDescription: string, imageSize: string): void {
     const dialogRef = this.dialog.open(ImageModalComponent, {
-      data: {imagePath: imagePath, name: imageName},
+      data: {imagePath: imagePath, name: imageName, price: imagePrice, type: imageType, category: imageCategory, description: imageDescription, size: imageSize},
+      height: 'auto%',
     });
+
   }
 }

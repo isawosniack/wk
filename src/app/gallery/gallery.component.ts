@@ -1,4 +1,3 @@
-import { HttpClientModule } from '@angular/common/http';
 import { Component, inject, OnInit, ViewChild } from '@angular/core';
 import { Artwork } from 'app/models/artwork.model';
 import { ArtworkService } from 'app/services/artwork.service';
@@ -11,7 +10,7 @@ import { ArtworkType } from '@app/models/artwork-type.model';
 
 @Component({
   selector: 'app-gallery',
-  imports: [HttpClientModule, CommonModule, ImageModalComponent, MatDialogModule],
+  imports: [CommonModule, MatDialogModule],
   templateUrl: './gallery.component.html',
   styleUrl: './gallery.component.scss'
 })
@@ -23,7 +22,7 @@ export class GalleryComponent implements OnInit{
   constructor(private _artworkService: ArtworkService,
     private _matDialog: MatDialog
   ) {
-
+  
   }
 
   ngOnInit(): void {
@@ -39,10 +38,11 @@ export class GalleryComponent implements OnInit{
 
   readonly dialog = inject(MatDialog);
 
-  openDialog(imagePath: string, imageName: string, imagePrice: number, imageType: ArtworkType, imageCategory: CategoryType, imageDescription: string, imageSize: string): void {
+  openDialog(artwork : Artwork): void {
     const dialogRef = this.dialog.open(ImageModalComponent, {
-      data: {imagePath: imagePath, name: imageName, price: imagePrice, type: imageType, category: imageCategory, description: imageDescription, size: imageSize},
-      height: 'auto%',
+      data: artwork,
+      minWidth: '50vw',
+      minHeight: '50vw'
     });
 
   }

@@ -3,7 +3,7 @@
         <div *ngFor="let artwork of artworks">
             <div class="text-center text-gray-900 hover:bg-gray-200">
                 <div class="aspect-square">
-                <img class="w-full h-full object-cover" src="{{artwork.ImagePath}}" alt="" (click)="openDialog(artwork.ImagePath, artwork.Name, artwork.Price, artwork.Type, artwork.Category, artwork.Description, artwork.Size)">
+                <img class="w-full h-full object-cover" src="{{artwork.ImagePath}}" alt="" (click)="openDialog(artwork)">
             </div>
                 <h1 class="font-bold">{{artwork.Name}}</h1>
                 <p>Size: {{artwork.Size}}</p>

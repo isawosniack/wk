@@ -41,10 +41,10 @@ export class GalleryComponent implements OnInit{
   openDialog(artwork : Artwork): void {
     const dialogRef = this.dialog.open(ImageModalComponent, {
       data: artwork,
-      width: '40vw',
-      maxWidth: '40vw',
-      height: '50vh',
-      maxHeight: '50vh'
+      width: '30vw',
+      maxWidth: '90vw',
+      height: '70vh',
+      maxHeight: '90vh'
     });
   }
 }
